@@ -14,11 +14,12 @@
   padding: 15px;
   z-index: 100;
   overflow-y: scroll;
+  padding: 10px;
 }
 .logo {
   font-size: 25px;
   padding: 0 15px;
-  color: #a6e256;
+  color: white;
   overflow-y: fixed;
 }
 .logo1 {
@@ -37,6 +38,7 @@
   width: 100%;
   margin-top: 40px;
   overflow-y: scroll;
+  margin-top: 20px;
 }
 .menu-content::-webkit-scrollbar {
   display: none;
@@ -55,6 +57,7 @@
   font-size: 20px;
   padding: 15px 20px;
   overflow-y: fixed;
+  padding: 10px 20px; 
 }
 .item a,
 .submenu-item {
@@ -62,7 +65,8 @@
   display: inline-block;
   width: 100%;
   border-radius: 12px;
-  border-style: solid;
+  border-style: dotted;
+  margin-bottom: 10px;
 }
 .item i {
   font-size: 12px;
@@ -108,11 +112,24 @@
   font-size: 40px;
   text-align: center;
 }
-#notificationButton {
+
+#notificationButton,
+#userButton {
   position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  background: transparent;
+  color: white;
+  border: none;
+}
+
+#notificationButton {
+  right: 60px;
+}
+
+#userButton {
+  right: 10px;
 }
 
 #map-canvas {

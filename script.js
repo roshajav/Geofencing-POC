@@ -3,6 +3,7 @@ const sidebarClose = document.querySelector("#sidebar-close");
 const menu = document.querySelector(".menu-content");
 const workOrders = document.querySelectorAll(".item");
 var notificationBtn = document.getElementById("notificationButton");
+var userButton = document.getElementById("userButton");
 
 sidebarClose.addEventListener("click", () => sidebar.classList.toggle("close"));
 
