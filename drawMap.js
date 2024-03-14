@@ -93,26 +93,40 @@ let lastElement
 function InitMap() {
     var location = new google.maps.LatLng(28.620585, 77.228609)
     mapOptions = {
-        zoom: 4,
+        zoom: 8,
 		minZoom: 3,
 		maxZoom: 20,
         //center: location,
-        center: {
-            lat: 24.886,
-            lng: -70.268
-        },
+        // center: {
+        //     lat: 24.886,
+        //     lng: -70.268
+        // },
+        center: { lat: 0, lng: 0 },
         mapTypeId: google.maps.MapTypeId.RoadMap,
     }
 	
 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-	
-	debugger
-	
-	
-	
-   
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var userLocation = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            var marker = new google.maps.Marker({
+                position: userLocation,
+                map: map,
+                title: 'Your Location'
+            });
 
-    
+            map.setCenter(userLocation);
+        }, function () {
+            handleLocationError(true, map.getCenter());
+        });
+    } else {
+        handleLocationError(false, map.getCenter());
+    }
+	
+
     var all_overlays = [];
     var selectedShape;
 
